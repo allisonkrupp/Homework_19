@@ -89,6 +89,35 @@ nav {
     max-width: 700px;
     background-color: transparent;
 }
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 
 
 /* Grid Sytem & Cards */
@@ -127,13 +156,23 @@ nav {
 .btn {
     background: linear-gradient(to bottom right, rgb(1, 1, 109), rgb(165, 1, 165));
     border: none;
-    width: 150px;
+    width: 200px;
     padding: 10px;
+    margin-right: 10px;
 }
 .btn:hover {
     background: linear-gradient(to bottom right, rgb(165, 1, 165), rgb(1, 1, 109));
 }
-
+.btn a {
+  color: white;
+  text-decoration: none;
+}
+.modal-content {
+  width: 515px;
+}
+.modal-footer {
+  justify-content: center;
+}
 
 /* Blockquote */
 
@@ -167,36 +206,32 @@ nav {
     background-image: linear-gradient(to bottom right, rgb(1, 1, 109), rgb(165, 1, 165));
     background-position: top;
     width: 100%;
-    height: 700px;
+    height: auto;
     color: white;
 }
 .skills {
    padding-top: 100px;
    padding-bottom: 50px;
   }
-.table {
-    width: 1000px;
-    margin: auto;
+  .panel {
+    padding-bottom: 30px;
+  }
+  .panel-group {
+    padding-bottom: 100px;
+  }
+  .panel-title {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .panel-title a {
     color: white;
-}
-.col1 {
-    width: 275px;
-}
-.col2 {
-    width: 250px;
-}
-.col3 {
-    width: 250px;
-}
-.col4 {
-    width: 190px;
-}
-.table th {
-  border: none;
-}
-.table td {
-  border: none;
-}
+    text-decoration: none;
+  }
+  .panel-body {
+    margin-top: 20px;
+    text-align: center;
+  }
 
 
 /* Download Resume */
@@ -217,88 +252,56 @@ nav {
     height: 60px;
     background-image: linear-gradient(to bottom right, rgb(1, 1, 109), rgb(165, 1, 165));
     color: white;
-    padding: 18px;
-    text-transform: uppercase;
+    padding: 16px;
     letter-spacing: 1px;
+    transition: all 0.5s;
+    font-size: 18px;
   }
-  .btn:hover {
+  .download .btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .download .btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .download .btn:hover span {
   color: white;
-  background-image: linear-gradient(to bottom right, rgb(165, 1, 165), rgb(1, 1, 109));
-  }
+  padding-right: 25px;  
+}
+.download .btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 
   /* Contact Form */
 
 .background4 {
-    margin-top: 100px;
-    width: 100%;
-  }
-  .contactForm {
-    padding-top: 30px;
-    background-image: linear-gradient(to bottom right, rgb(1, 1, 109), rgb(165, 1, 165));
-    background-position: top;
-    height: 750px;
-    color: white;
+  margin-top: 100px;
+  background-image: linear-gradient(to bottom right, rgb(1, 1, 109), rgb(165, 1, 165));
+  background-position: top;
+  width: 100%;
+  height: 400px;
+  color: white;
+  text-align: center;
   }
   .contact {
-    padding-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
-  .fullForm {
-    text-align: center;
-    justify-content: center;
-    margin-top: 50px;
-    width: 100%;
-  }
-  .topFields {
-    justify-content: center;
-    text-align: left;
-    display: flex;
-    margin-bottom: 30px;
-  }
-  .fullName {
-    margin-right: 30px;
-  }
-  .fields {
-    width: 300px;
-    height: 40px;
-    border-radius: 3px;
-  }
-  .bottomFields {
-    text-align: left;
-    justify-content: center;
-    display: inline-block;
-  }
-  .subjectName {
-    margin-bottom: 30px;
-  }
-  .messageName {
-    margin-bottom: 30px;
-  }
-  .subject2 {
-    height: 40px;
-  }
-  .message2 {
-    height: 100px;
-  }
-  .fields2 {
-    width: 630px;
-    border-radius: 3px;
-  }
-  .submit {
-    width: 300px;
-    height: 60px;
-    background-color: black;
+  .email a {
     color: white;
-    padding: 17px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 3px;
-    border-color: transparent;
+    display: block;
+    padding-bottom: 30px;
   }
-  .submit:hover {
-    background-color: rgb(20, 20, 20);
-  }
-  
+
   
   /* Footer */
   
@@ -385,6 +388,9 @@ nav {
     .card-img-top {
       height: 225px;
   }
+  .btn {
+    margin-bottom: 10px;
+  }
 
   
   /* Blockquote */
@@ -410,38 +416,19 @@ nav {
 .background3 {
   margin-top: 50px;
   width: 100%;
-  height: 550px;
+  height: auto;
   color: white;
+  padding-bottom: 50px;
 }
 .skills {
  padding-top: 50px;
  padding-bottom: 50px;
 }
-.table {
-  width: 300px;
-  margin: auto;
-  color: white;
+.panel {
+  padding-bottom: 30px;
 }
-.hide {
-  display: none;
-}
-.col1 {
-  width: 350px;
-}
-.col2 {
-  display: none;
-}
-.col3 {
-  display: none;
-}
-.col4 {
-  display: none;
-}
-.table th {
-border: none;
-}
-.table td {
-border: none;
+.panel-group {
+  padding-bottom: 0px;
 }
 
 
@@ -460,48 +447,14 @@ border: none;
 .background4 {
   margin-top: 50px;
   width: 100%;
+  height: auto;
+  padding-bottom: 30px;
 }
 .contact {
-  padding-top: 30px;
+  padding-top: 50px;
 }
-.fullForm {
-  justify-content: center;
-  text-align: center;
-  display: block;
-  margin-top: 50px;
-  width: 100%;
-}
-.topFields {
-  justify-content: center;
-  text-align: left;
-  display: grid;
-}
-.fullName {
-  margin-bottom: 30px;
-  margin-right: 0px;
-}
-.fields {
-  margin-top: 5px;
-  width: 300px;
-  height: 40px;
-  border-radius: 3px;
-}
-.subjectName {
-  margin-bottom: 30px;
-}
-.messageName {
-  margin-bottom: 30px;
-}
-.subject2 {
-  height: 40px;
-}
-.message2 {
-  height: 100px;
-}
-.fields2 {
-  margin-top: 5px;
-  width: 300px;
-  border-radius: 3px;
+.email a {
+  padding-bottom: 30px;
 }
 
 
